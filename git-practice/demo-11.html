@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Vue 演示</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+    <style media="screen">
+      #app {
+        width: 80%;
+        margin: auto;
+      }
+          /* 必需 */
+    .expand-transition {
+      transition: all .5s ease;
+      height: 30px;
+      padding: 10px;
+      background-color: #eee;
+      overflow: hidden;
+    }
+
+    /* .expand-enter 定义进入的开始状态 */
+    /* .expand-leave 定义离开的结束状态 */
+    .expand-enter, .expand-leave {
+      padding: 0 10px;
+      opacity: 0;
+    }
+    </style>
+</head>
+<body>
+
+<div id="app">
+  <div v-if="show" transition="expand" class="text">
+    hello
+  </div>
+  <button type="button" @click='toggle'>toggle</button>
+  <br>
+  <hr>
+</div>
+<script src="https://cdn.bootcss.com/vue/1.0.17/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/0.7.11/vue-router.min.js"></script>
+
+<script>
+
+  const vm = new Vue({
+      el: '#app',
+      data: {
+          show: true
+      },
+      methods: {
+        toggle(){
+          this.show = !this.show
+        }
+      }
+  })
+  const ele = document.querySelector('.text');
+  Vue.transition('expand', {
+    beforeEnter(){
+      alert('before enter');
+    },
+    enter(){
+      ele.textContent = 'entering';
+    },
+    afterEnter(){
+      alert('after enter');
+    },
+    beforeLeave(){
+      alert('before leave');
+    },
+    leave(){
+      ele.textContent = 'leaving';
+    },
+    afterLeave(){
+      alert('after leave');
+    }
+  })
+</script>
+
+</body>
+</html>

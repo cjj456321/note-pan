@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Vue 演示</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-demo">
+  <p>
+    {{msg}}
+  </p>
+  <input v-on:click="reverseMessage" type="button" value="reverseMessage">
+</div>
+
+<script src="https://cdn.bootcss.com/vue/1.0.16/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/0.7.11/vue-router.min.js"></script>
+
+<script>
+  new Vue({
+    el: ".app-demo",
+    data: {
+      msg: 'hello vue.js'
+    },
+    methods: {
+      reverseMessage: function () {
+        this.msg = this.msg.split('').reverse().join('');
+      }
+    }
+
+  })
+</script>
+
+</body>
+</html>

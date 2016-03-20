@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>100 days</title>
+	<style type="text/css" media="screen">
+		html {
+			box-sizing: border-box;
+		}
+		*,*::before,*::after {
+			padding: 0;
+			margin: 0;
+			box-sizing: inherit;
+		}
+		body {
+			background-color: #f7f7f7;
+		}
+		ul {
+			width: 80%;
+			margin: auto;
+		}
+		ul > li:not(:last-child)::after {
+			content: ' ,';
+		}
+		ul > li > span::before {
+			content: '注释:';
+		}
+		a:empty::after {
+			content: attr(href);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><a href="1"></a> &nbsp;&nbsp;&nbsp;<span>css 图形</span></li>
+		<li><a href="2"></a> &nbsp;&nbsp;&nbsp;<span>利用css制作的一个箭头动画</span></3i>
+		<li><a href="3"></a> &nbsp;&nbsp;&nbsp;<span>一个简单的手机页面</span></li>
+		<li><a href="4"></a> &nbsp;&nbsp;&nbsp;<span>一个简单的聊天页面</span></li>
+		<li><a href="5"></a> &nbsp;&nbsp;&nbsp;<span>vue做的简单markdown编辑器</span></li>
+	</ul>
+</body>
+</html>

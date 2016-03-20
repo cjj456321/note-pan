@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Vue 演示</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+    <style media="screen">
+      #app {
+        width: 80%;
+        margin: auto;
+      }
+    </style>
+</head>
+<body>
+
+<div id="app">
+  <input type="radio" :value="a" v-model='picked'> One
+  <input type="radio" value="Two" v-model='picked'> Two
+  <input
+  type="checkbox"
+  v-model="checkbox"
+  :true-value="a"
+  :false-value="b"> {{checkbox}}
+  <br>
+  <span>picked: {{picked}}</span>
+  <hr>
+  <select v-model="selected" multiple >
+    <option v-for="option of options" :value="option.value">{{option.text}}</option>
+  </select>
+  <br>
+  <span>selected: {{selected | json}}</span>
+  <br>
+  <hr>
+  <p>
+    {{age}}
+  </p>
+  <input v-model="age" number debounce="1000">
+</div>
+
+<script src="https://cdn.bootcss.com/vue/1.0.17/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/0.7.11/vue-router.min.js"></script>
+
+<script>
+  const vm = new Vue({
+      el: '#app',
+      data: {
+        age: 10,
+        a: "A",
+        b: "B",
+        checkbox: "A",
+        picked: ["One"],
+        selected: "optionB",
+        options: [
+          {text:'One', value: 'optionA'},
+          {text:'Two', value: 'optionB'},
+          {text:'Three', value: 'optionC'}
+        ]
+      }
+  })
+</script>
+
+</body>
+</html>

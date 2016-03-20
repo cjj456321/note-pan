@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MarkDown 编辑器</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+	<h1>MarkDown 编辑器</h1>
+<div class="editor">
+	<textarea class="edit-part" v-model="input"></textarea><div class="show">{{{ input | marked }}}</div>
+</div>
+<script src="//cdn.bootcss.com/vue/1.0.17/vue.min.js"></script>	
+<script src="//cdn.bootcss.com/marked/0.3.5/marked.min.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el: ".editor",
+		data: {
+			input: '# hello world'
+		},
+		filters: {
+			marked
+		}
+	})
+</script>	
+</body>
+</html>

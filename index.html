@@ -1,1 +1,47 @@
-<h1>hello world</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>personal note</title>
+	<style type="text/css" media="screen">
+		html {
+			box-sizing: border-box;
+			background-color: #f7f7f7;
+		}
+		*, *::before, *::after {
+			box-sizing: inherit;
+			padding: 0;
+			margin: 0;
+		}
+		ul > li:not(:last-child)::after {
+			content: ' ,';
+		}
+		ul {
+			width: 50%;
+			margin: 20px auto;
+			text-align: center;
+			list-style-type: none;
+		}
+		a:empty::after {
+			content: attr(href);
+		}
+		a:empty::before {
+			content: "# ";
+		}
+		li {
+			margin: 10px;
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<a href="100days"></a>
+		</li>
+		<li>
+			<a href="other-demo"></a>
+		</li>
+	</ul>
+</body>
+</html>

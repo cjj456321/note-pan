@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Vue 演示</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+    <style media="screen">
+      #app {
+        width: 80%;
+        margin: auto;
+      }
+    </style>
+</head>
+<body>
+
+<div id="app">
+  <table>
+  <tr is="my-component"></tr>
+  </table>
+  <br>
+  <hr>
+  <input v-model='parentMsg' name="name" value="">
+  <child :msg-hello="parentMsg"></child>
+  <br>
+  <hr>
+  <h1 is="three"></h1>
+</div>
+
+<script src="https://cdn.bootcss.com/vue/1.0.17/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/0.7.11/vue-router.min.js"></script>
+
+<script>
+  // const MyComponent = Vue.extend({
+  //   template: '<div>hello world !</div>'
+  // })
+  // Vue.component('my-component', MyComponent);
+
+  const vm = new Vue({
+      el: '#app',
+      data: {
+        parentMsg: 'hello'
+      },
+      components: {
+        'my-component': {
+          template: '<h1> hello world </h1>'
+        },
+        'child': {
+          props: ['msgHello'],
+          template: '<span>{{msgHello}}</span>'
+        },
+        'three': {
+          props: {
+            msg: {
+              type: Number,
+              default: 100
+            }
+          },
+          template: '<span>{{msg}}</span>'
+        }
+      }
+  })
+</script>
+
+</body>
+</html>

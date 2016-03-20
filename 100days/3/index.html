@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>快红包</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/Swiper/3.0.0/css/swiper.min.css">
+    <link rel="stylesheet" href="style.css" media="screen">
+    <script type="text/javascript">
+      document.documentElement.style.fontSize = document.documentElement.clientHeight/480*10 + 'px';
+    </script>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide first">
+            <div class="icon-0-1"></div>
+            <h1>红包娱乐第一站</h1>
+            <div class="icon-0-2"></div>
+            <a href="javascript:void(0)">点击下载</a>
+        </div>
+        <div class="swiper-slide text-common">
+            <h1>每日红包</h1>
+            <p>
+              每天定时红包免费抢
+            </p>
+            <div class="icon-1-1"></div>
+        </div>
+        <div class="swiper-slide text-common">
+            <h1>额外奖励</h1>
+            <p>
+              每日红包还有额外奖励
+            </p>
+            <div class="icon-2-1"></div>
+        </div>
+        <div class="swiper-slide text-common">
+            <h1>商家红包</h1>
+            <p>
+              众多优质合作商家发红包
+            </p>
+            <div class="icon-3-1">
+
+            </div>
+        </div>
+        <div class="swiper-slide text-common">
+          <h1>漂流红包</h1>
+          <p>
+             不仅抢红包，还能交朋友
+          </p>
+          <div class="icon-4-1">
+          </div>
+        </div>
+        <div class="swiper-slide text-common last">
+          <h1>金币商城</h1>
+          <p>
+            众多商品任你兑换
+          </p>
+          <div class="icon-5-1">
+          </div>
+          <a href="#">
+            点击下载
+          </a>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<script src="//cdn.bootcss.com/Swiper/3.0.0/js/swiper.jquery.min.js"></script>
+<script src="//cdn.bootcss.com/Swiper/3.0.0/js/swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction : 'vertical',
+        pagination : '.swiper-pagination',
+        paginationClickable :true,
+    })
+    alert(navigator.userAgent.indexOf('MicroMessenger'));
+</script>
+</body>
+</html>

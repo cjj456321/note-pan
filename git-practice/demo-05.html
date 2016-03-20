@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Vue 演示</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-header">
+  a = {{a}}, b = {{b}}
+  <p>
+    {{a}}
+  </p>
+  <input v-model='a' name="name" value="{{a}}">
+</div>
+<hr>
+<div class="app-footer">
+  {{fullName}}
+  <input v-model='firstName' name="name">
+</div>
+
+
+<script src="https://cdn.bootcss.com/vue/1.0.16/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/0.7.11/vue-router.min.js"></script>
+
+<script>
+  const vm = new Vue({
+    el: ".app-header",
+    data: {
+      a: 1
+    },
+    computed: {
+      b: function () {
+        return parseInt(this.a) + 1;
+      }
+    }
+  })
+
+  // const vm_footer = new Vue({
+  //   el: '.app-footer',
+  //   data: {
+  //     firstName: 'hello',
+  //     lastName: 'world',
+  //     fullName: 'hello world'
+  //   }
+  // })
+  //
+  // vm_footer.$watch('firstName', function (val) {
+  //     this.fullName = val + ' ' + this.lastName;
+  // })
+  // vm_footer.$watch('lastName', function (newVal) {
+  //     this.fullName = this.firstName + ' ' + newVal;
+  // })
+
+  const vm_footer = new Vue({
+    el: '.app-footer',
+    data: {
+      firstName: 'hello',
+      lastName: 'world'
+    },
+    computed: {
+      fullName: {
+        get: function () {
+          return this.firstName + ' ' + this.lastName;
+        },
+        set: function (newVal) {
+          var names = newVal.split(' ');
+          this.firstName = names[0];
+          this.lastName = names[names.length - 1];
+        }
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

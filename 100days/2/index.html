@@ -1,0 +1,73 @@
+<style>
+*{
+  padding:0;
+  margin:0;
+}
+@-webkit-keyframes roll {
+  from {
+    opacity: 1;
+    bottom: 5px;
+  }
+  50% {
+    opacity: 0;
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 5px;
+  }
+}
+@keyframes roll {
+  from {
+    opacity: 1;
+    bottom: 5px;
+  }
+  50% {
+    opacity: 0;
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 5px;
+  }
+}
+.test {
+  margin: 50px auto;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border: 1px solid red;
+  background: #f7f7f7;
+}
+
+ul {
+  list-style-type: none;
+  position: absolute;
+  -webkit-animation: roll 2s infinite ease;
+          animation: roll 2s infinite ease;
+  bottom: 5px;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+li > span {
+  border: 1px solid blue;
+  display: block;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin: -15px auto;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  width: 20px;
+  height: 20px;
+}
+
+</style>
+<div class="test">
+  <ul>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+</div>

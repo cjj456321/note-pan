@@ -1,0 +1,240 @@
+	@import url(keyframes.css);
+	/*talk================================begin*/
+	.talk {
+		  margin: 50px auto;
+		  width: 300px;
+		  height: 100px;
+		  border: 1px solid;
+		  border-radius: 10px;
+		  background-color: grey;
+		  position: relative;
+		}
+		.talk:before,.talk:after{
+		  position: absolute;
+		  content: "";
+		  width: 0;
+		  height: 0;
+		  border: 6px solid transparent;
+		  top: 30px;
+		}
+		.talk:before {
+		  left: -11px;
+		  border-right-color: grey;
+		}
+		.talk:after {
+		  left: -13px;
+		  border-right-color: #000;
+		  z-index: -1;
+		}
+	/*talk================================end*/
+
+		.egg {
+			width: 126px;
+			height: 180px;
+			background-color: red;
+			border-radius: 50% / 60% 60% 40% 40%;
+			margin: auto;
+		}
+
+		/*red-cross================================begin*/
+		.red-cross {
+		  width: 200px;
+		  height: 200px;
+		  border: 1px solid red;
+		  margin: 10px auto;
+		  position: relative;
+		}
+		.red-cross div:first-child {
+		  height: 10%;
+		  width: 70%;
+		  background-color: red;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  -webkit-transform: translateX(-50%) translateY(-50%);
+		          transform: translateX(-50%) translateY(-50%);
+		}
+		.red-cross div:last-child {
+		  width: 10%;
+		  height: 70%;
+		  background-color: red;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  -webkit-transform: translateX(-50%) translateY(-50%);
+		          transform: translateX(-50%) translateY(-50%);
+		}
+		/*red-cross================================end*/
+		
+
+		/*pacman================================begin*/
+				.pac-man {
+				  width: 400px;
+				  margin: 10px auto;
+				  position: relative;
+				}
+				.pac-man .bread {
+				  position: absolute;
+				  width: 20px;
+				  height: 20px;
+				  border-radius: 10px;
+				  background-color: red;
+				  top: 45px;
+				}
+				.pac-man .b1 {
+				  -webkit-animation: move 2s 2s linear infinite;
+				          animation: move 2s 2s linear infinite;
+				}
+				.pac-man .b2 {
+				  -webkit-animation: move 2s 1.5s linear infinite;
+				          animation: move 2s 1.5s linear infinite;
+				}
+				.pac-man .b3 {
+				  -webkit-animation: move 2s 1s linear infinite;
+				          animation: move 2s 1s linear infinite;
+				}
+				.pac-man .b4 {
+				  -webkit-animation: move 2s .5s linear infinite;
+				          animation: move 2s .5s linear infinite;
+				}
+				.pacman {
+				  position: fixed;
+				  top: 50%;
+				  left: 50%;
+				  -webkit-transform: translateX(-50%) translateY(-50%);
+				          transform: translateX(-50%) translateY(-50%);
+				  background-color: #f7f7f7;
+				}
+
+				.up {
+				  height: 50px;
+				  width: 100px;
+				  border-radius: 100px 100px 0 0;
+				  background-color: red;
+				  -webkit-transform-origin: center bottom;
+				          transform-origin: center bottom;
+				  -webkit-animation: up 1s linear infinite;
+				          animation: up 1s linear infinite;
+				}
+
+				.down {
+				  height: 50px;
+				  width: 100px;
+				  background-color: red;
+				  border-radius: 0 0 100px 100px;
+				  -webkit-animation: down 1s linear infinite;
+				          animation: down 1s linear infinite;
+				  -webkit-transform-origin: center top;
+				          transform-origin: center top;
+				}
+
+			
+
+		/* pacman================================end */
+
+		/* flower-anim===========================begin */
+			.flower-anim {
+				width: 400px;
+				margin: 20px auto;
+				position: relative;
+			}
+
+			.flower-anim > .block1 {
+			  position: relative;
+			  width: 0;
+			  height: 100px;
+			  border-right: 100px solid #11CC11;
+			  border-top: 50px solid #11CC11;
+			  border-radius: 50px 50px 0 0;
+			  -webkit-transform-origin: bottom right;
+			          transform-origin: bottom right;
+			  -webkit-animation: scale1 6s linear infinite;
+			          animation: scale1 6s linear infinite;
+			}
+
+			.flower-anim > .block1::before {
+			  content: "";
+			  position: absolute;
+			  width: 100px;
+			  border-top: 50px solid #11CC11;
+			  border-bottom: 50px solid #11CC11;
+			  border-left: 50px solid #11CC11;
+			  border-radius: 50px 0 0 50px;
+			  left: -50px;
+			}
+
+			.flower-anim > .block3 {
+			  margin-top: 10px;
+			  position: relative;
+			  width: 0;
+			  height: 100px;
+			  border-right: 100px solid #11CC11;
+			  border-bottom: 50px solid #11CC11;
+			  border-radius: 0 0 50px 50px;
+			  -webkit-transform-origin: top right;
+			          transform-origin: top right;
+			  -webkit-animation: scale3 6s linear infinite;
+			          animation: scale3 6s linear infinite;
+			}
+
+			.flower-anim > .block3::before {
+			  content: "";
+			  position: absolute;
+			  width: 100px;
+			  border-top: 50px solid #11CC11;
+			  border-bottom: 50px solid #11CC11;
+			  border-left: 50px solid #11CC11;
+			  border-radius: 50px 0 0 50px;
+			  left: -50px;
+			}
+
+			.flower-anim > .block2 {
+			  position: absolute;
+			  top: 0;
+			  left: 110px;
+			  height: 100px;
+			  width: 0;
+			  border-right: 100px solid #11CC11;
+			  border-top: 50px solid #11CC11;
+			  border-radius: 50px 50px 0 0;
+			  -webkit-transform-origin: bottom left;
+			          transform-origin: bottom left;
+			  -webkit-animation: scale2 6s linear infinite;
+			          animation: scale2 6s linear infinite;
+			}
+
+			.flower-anim > .block2::before {
+			  content: "";
+			  position: absolute;
+			  width: 100px;
+			  border-top: 100px solid #11CC11;
+			  border-right: 50px solid #11CC11;
+			  border-radius: 0 50px 50px 0;
+			}
+
+			.flower-anim > .block4 {
+			  position: absolute;
+			  top: 160px;
+			  left: 110px;
+			  height: 100px;
+			  width: 0;
+			  border-right: 100px solid #11CC11;
+			  border-bottom: 50px solid #11CC11;
+			  border-radius: 0 0 50px 50px;
+			  -webkit-transform-origin: top left;
+			          transform-origin: top left;
+			  -webkit-animation: scale4 6s linear infinite;
+			          animation: scale4 6s linear infinite;
+			}
+
+			.flower-anim > .block4::before {
+			  content: "";
+			  position: absolute;
+			  width: 100px;
+			  border-top: 100px solid #11CC11;
+			  border-right: 50px solid #11CC11;
+			  border-radius: 0 50px 50px 0;
+			}
+
+			
+		/* flower-anim===========================end */

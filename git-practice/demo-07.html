@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Vue 演示</title>
+    <style media="screen">
+      html {
+        font-size: 10px;
+      }
+      .test {
+        font-size: 4rem;
+        height: 40px;
+        color: black;
+        border: 1px solid currentColor;
+        display: flex;
+      }
+      .bg {
+        background-color: orange;
+      }
+    </style>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="app">
+  <div :class="cssObject" :style="styleObject">
+      hello wrold
+  </div>
+</div>
+
+<script src="https://cdn.bootcss.com/vue/1.0.16/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/0.7.11/vue-router.min.js"></script>
+
+<script>
+  const vm = new Vue({
+      el: '#app',
+      data: {
+        cssObject: {
+          'test': true,
+            'bg': true
+        },
+        styleObject: {
+          display: 'flex',
+          transform: 'rotate(45deg)'
+        }
+      }
+  })
+
+
+</script>
+</body>
+</html>

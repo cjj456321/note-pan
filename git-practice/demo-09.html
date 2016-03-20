@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Vue 演示</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="app">
+    <a href="http://www.baidu.com" @click.stop.prevent="say(hi, $event)">Say Hi</a>
+    <button type="button" name="button" @click='greet'>Greeting</button>
+    <form class="" action="index.html" method="post" @submit.prevent>
+      <button type="submit" name="button">submit</button>
+    </form>
+</div>
+<br><br>
+<hr>
+<div class="app-footer">
+  <form class="" action="index.html" method="post">
+    <input type="checkbox" name="name" id="jack" v-model='hello' value="jack">
+    <label for="jack">jack</label>
+    <input type="checkbox" name="name" id="rose" v-model='hello' value="rose">
+    <label for="rose">rose</label>
+    <input type="checkbox" name="name" id="mike" v-model='hello' value="mike">
+    <label for="mike">mike</label>
+    <input type="checkbox" name="name" id="sum" v-model='hello' value="sum">
+    <label for="sum">sum</label>
+  </form>
+  <span>{{hello | json }}</span>
+</div>
+
+
+<script src="https://cdn.bootcss.com/vue/1.0.16/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/0.7.11/vue-router.min.js"></script>
+
+<script>
+  const vm = new Vue({
+      el: '#app',
+      data: {
+          msg: 'hello, world',
+          hi: 'hello vue.js'
+      },
+      methods: {
+        greet(event){
+          alert(this.msg);
+          alert(event.target);
+        },
+        say(str, event){
+          alert(str);
+          alert(event.target);
+        }
+      }
+  })
+
+  const vm_footer = new Vue({
+    el: '.app-footer',
+    data: {
+      hello: []
+    }
+  })
+</script>
+
+</body>
+</html>

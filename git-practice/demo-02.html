@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Vue 演示</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-demo">
+  <ul>
+    <li v-for="item in items">
+      {{item.text}}
+    </li>
+  </ul>
+</div>
+
+<script src="https://cdn.bootcss.com/vue/1.0.16/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/0.7.11/vue-router.min.js"></script>
+
+<script>
+  new Vue({
+    el: ".app-demo",
+    data: {
+      items: [
+        {text: 'learn js'},
+        {text: 'learn vue.js'},
+        {text: 'learn css'}
+      ]
+    }
+  })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Vue 演示</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="app">
+  <template v-if='ok'>
+      <h1>hello world</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+  </template>
+  <h2 v-else>No</h2>
+  <ul>
+    <li v-for="item of items">
+        {{ok}}--{{$index}}--{{item.msg}}
+    </li>
+  </ul>
+  <template v-for="item of items">
+    <li>{{item.msg}}</li><span> 德玛西亚</span>
+  </template>
+  <button type="button" name="button" @click='filter'>过滤</button>
+</div>
+<div class="app-header">
+  <span v-for="n of 10">{{ n }} </span>
+</div>
+
+<div class="app-footer">
+  <ul>
+    <li v-for="(key,val) of object">
+        {{key}} : {{val}}
+    </li>
+  </ul>
+</div>
+<script src="//cdn.bootcss.com/vue/1.0.17/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/0.7.11/vue-router.min.js"></script>
+
+<script>
+  const vm = new Vue({
+      el: '#app',
+      data: {
+        ok: false,
+        items: [
+          {msg: 'js'},
+          {msg: 'java'},
+          {msg: 'php'}
+        ]
+      },
+      methods: {
+        filter () {
+          this.items.forEach(item => item.msg = 'aaa')
+        }
+      }
+  })
+
+  const vm_footer = new Vue({
+    el: '.app-footer',
+    data: {
+      object : {
+        firstName: 'john',
+        lastName: 'Doe',
+        age: 30
+      }
+    }
+  })
+
+  new Vue({
+    el: '.app-header'
+  })
+</script>
+
+</body>
+</html>
