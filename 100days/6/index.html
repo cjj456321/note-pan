@@ -78,7 +78,7 @@
     filters: {
       replace: (val) => {
         if(val) {
-          val.replace(/(T|Z)/g, ' ')
+          return val.replace(/(T|Z)/g, ' ')
         }
       }
     },
