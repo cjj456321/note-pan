@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取react提交记录</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style type="text/css">
+    body {
+      background-color: #f4f5f6;
+    }
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    #demo {
+      width: 80%;
+      margin: auto;
+      text-align: center;
+    }
+    ul {
+      text-align: left;
+      margin-left: 40%;
+    }
+    .name, .date {
+      font-weight: 800;
+    }
+
+
+  </style>
+</head>
+<body>
+<div id="demo">
+  <h1>Latest Commit of React</h1>
+  <template v-for="branch of branches">
+    <input type="radio" :value="branch" :id="branch" v-model="currentBranch"/>
+    <label :for="branch">{{ branch }}</label>
+  </template>
+  <p>{{user}}/{{project}}@{{ currentBranch }}</p>
+  <ul>
+    <li v-for="record of commits">
+    <a :href="record.html_url" target="_blank">{{record.sha.slice(0,7)}}-</a>
+    <span>&nbsp;&nbsp;&nbsp;{{record.commit.message}} <br>
+    </span>
+    <span>by---<span class="name">{{record.commit.author.name}}</span>@<span class="date">{{record.commit.author.date | replace}}</span></span>
+    </li>
+  </ul>
+  <div>
+    <label for="user">账号:</label>
+    <input v-model="user" id="user" @keyup.enter="handle"><br>
+    <label for="project">项目:</label>
+    <input v-model="project" id="project" @keyup.enter="handle">
+  </div>
+  <p>温馨提示：在输入后按enter键就可以看到结果了</p>
+</div>
+<script src="//cdn.bootcss.com/vue/1.0.17/vue.min.js"></script>	
+
+<script type="text/javascript">
+	new Vue({
+		el: "#demo",
+		data: {
+      user: 'facebook',
+      project: 'react',
+			branches: ['master', 'gh-pages'],
+			currentBranch: 'gh-pages',
+			commits: null
+		},
+    computed: {
+      apiURL: function () {
+        return `https://api.github.com/repos/${this.user}/${this.project}/commits?per_page=3&sha=`
+      }
+    },
+    watch: {
+      currentBranch: 'fetchData',
+    },
+    created () {
+      this.fetchData()
+    },
+    filters: {
+      replace: (val) => {
+        if(val) {
+          val.replace(/(T|Z)/g, ' ')
+        }
+      }
+    },
+    methods: {
+      fetchData () {
+        var xhr = new XMLHttpRequest()
+        var self = this
+        xhr.open('GET', self.apiURL + self.currentBranch)
+        xhr.onload = function () {
+          self.commits = JSON.parse(xhr.responseText)
+        }
+        xhr.send()
+      },
+      handle () {
+        this.fetchData()
+      }
+    }
+	})
+</script>	
+</body>
+</html>
