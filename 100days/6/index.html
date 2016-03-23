@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>获取react提交记录</title>
+	<title>获取github提交记录</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <style type="text/css">
     body {
@@ -30,7 +30,7 @@
 </head>
 <body>
 <div id="demo">
-  <h1>Latest Commit of React</h1>
+  <h1>Latest Commit of {{project}}</h1>
   <template v-for="branch of branches">
     <input type="radio" :value="branch" :id="branch" v-model="currentBranch"/>
     <label :for="branch">{{ branch }}</label>
