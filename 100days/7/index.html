@@ -90,7 +90,7 @@
       addUser () {
         if (this.value.trim() && this.name.trim()) {
           let date = new Date().toLocaleString()
-          this.disabled = false
+          this.disabled = true
           this.db_souce.push({name: this.name, value: this.value, date: date})
           this.value = ''
         }
