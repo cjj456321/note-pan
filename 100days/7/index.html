@@ -37,6 +37,7 @@
     margin: auto;
     height: 500px;
     padding: 20px;
+    overflow-y: scroll;
   }
 
   .input > input {
@@ -59,7 +60,7 @@
     <p v-for="user in users" track-by="$index"><span class="name">>&nbsp;&nbsp;&nbsp;{{user[0]}}:</span><span class="content"> {{user[1]}}</span><span class="date">{{user[2]}}</span></p>
   </div>
   <div class="input">
-    <input v-model="name" placeholder="输入姓名："/>
+    <input v-model="name" placeholder="输入姓名：" :disabled="disabled" />
     <input @keyup.enter="addUser" v-model="value" placeholder="消息"/>
   </div>
 </div>
@@ -74,7 +75,8 @@
       users: [],
       name: '',
       value: '',
-      flag: true
+      flag: true,
+      disabled: false
 		},
      computed: {
       db_souce () {
@@ -88,6 +90,7 @@
       addUser () {
         if (this.value.trim() && this.name.trim()) {
           let date = new Date().toLocaleString()
+          this.disabled = false
           this.db_souce.push({name: this.name, value: this.value, date: date})
           this.value = ''
         }
