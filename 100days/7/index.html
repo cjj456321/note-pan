@@ -60,7 +60,8 @@
     <p v-for="user in users" track-by="$index"><span class="name">>&nbsp;&nbsp;&nbsp;{{user[0]}}:</span><span class="content"> {{user[1]}}</span><span class="date">{{user[2]}}</span></p>
   </div>
   <div class="input">
-    <input v-model="name" placeholder="输入姓名：" :disabled="disabled" />
+    <input v-model="name" placeholder="输入姓名：" disabled v-if="disabled" />
+    <input v-model="name" placeholder="输入姓名：" v-else/>
     <input @keyup.enter="addUser" v-model="value" placeholder="消息"/>
   </div>
 </div>
