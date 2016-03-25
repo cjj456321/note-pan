@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取github提交记录</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style type="text/css">
+  * {
+    box-sizing: border-box;
+  }
+
+  #app {
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-70%);
+            transform: translateX(-50%) translateY(-70%);
+    padding: 10px;
+  }
+  #app h1 {
+    text-align: center;
+  }
+
+  .name {
+    font-weight: 800;
+  }
+
+  .date {
+    display: inline-block;
+    float: right;
+  }
+
+  .chatbox {
+    width: 100%;
+    border: 1px solid #ccc;
+    margin: auto;
+    height: 500px;
+    padding: 20px;
+  }
+
+  .input > input {
+    margin: 3px 10px;
+    font-size: 18px;
+  }
+  .input > input:first-child {
+    width: 100px;
+  }
+  .input > input:last-child {
+    width: 200px;
+  }
+  </style>
+</head>
+<body>
+<template id="demo">
+<div id="app">
+  <h1>简单群聊天系统</h1>
+  <div class="chatbox">
+    <p v-for="user in users" track-by="$index"><span class="name">>&nbsp;&nbsp;&nbsp;{{user[0]}}:</span><span class="content"> {{user[1]}}</span><span class="date">{{user[2]}}</span></p>
+  </div>
+  <div class="input">
+    <input v-model="name" placeholder="输入姓名："/>
+    <input @keyup.enter="addUser" v-model="value" placeholder="消息"/>
+  </div>
+</div>
+</template>
+<script src="//cdn.bootcss.com/vue/1.0.17/vue.min.js"></script>	
+<script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el: "#demo",
+		data: {
+      url: 'https://panshao.firebaseio.com/users',
+      users: [],
+      name: '',
+      value: '',
+      flag: true
+		},
+     computed: {
+      db_souce () {
+        return new Firebase(this.url)
+      }
+    },
+    created () {
+      this.init()
+    },
+    methods: {
+      addUser () {
+        if (this.value.trim() && this.name.trim()) {
+          let date = new Date().toLocaleString()
+          this.db_souce.push({name: this.name, value: this.value, date: date})
+          this.value = ''
+        }
+      },
+      init () {
+        const self = this
+        self.db_souce.on('value', function (snaplot) {
+          const data = snaplot.val()
+          if (self.flag) {
+            for (let key in data) {
+              self.users.push([data[key].name, data[key].value, data[key].date])
+            }
+          }
+          self.flag = false
+        })
+        self.db_souce.on('child_added', function (snaplot) {
+          if (!self.flag) {
+            self.users.push([snaplot.val().name, snaplot.val().value, snaplot.val().date])
+          }
+        })
+      }
+    }
+	})
+</script>	
+</body>
+</html>
