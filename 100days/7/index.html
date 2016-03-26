@@ -65,9 +65,10 @@
   </div>
 </div>
 </template>
-<script src="//cdn.bootcss.com/vue/1.0.17/vue.min.js"></script>	
-<script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+<script src="vue.min.js"></script>	
+<script src="firebase.js"></script>
 <script type="text/javascript">
+	'use strict'
   Vue.directive('disabled', function (value) {
     this.el.disabled = !!value
   })
