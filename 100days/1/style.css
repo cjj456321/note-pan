@@ -238,3 +238,70 @@
 
 			
 		/* flower-anim===========================end */
+
+		/* batary ================================begin */
+
+		.batary {
+		  width: 100px;
+		  height: 40px;
+		  display: -webkit-box;
+		  display: -webkit-flex;
+		  display: -ms-flexbox;
+		  display: flex;
+		  position: relative;
+		  border: 1px solid #000;
+		  margin: 10px auto;
+		}
+
+		.batary::after {
+		  content: "";
+		  width: 10px;
+		  height: 20px;
+		  background-color: #111;
+		  display: block;
+		  position: absolute;
+		  left: 100px;
+		  top: 10px;
+		}
+
+		[class^=status] {
+		  width: 20px;
+		  height: 30px;
+		  background-color: #333;
+		  margin: 6px;
+		  -webkit-animation: fade .5s linear infinite;
+		          animation: fade .5s linear infinite;
+		}
+
+		.status1 {
+		  -webkit-animation-delay: .1s;
+		          animation-delay: .1s;
+		}
+
+		.status2 {
+		  -webkit-animation-delay: .2s;
+		          animation-delay: .2s;
+		}
+
+		.status3 {
+		  -webkit-animation-delay: .3s;
+		          animation-delay: .3s;
+		}
+
+		@-webkit-keyframes fade {
+		  from {
+		    opacity: 0;
+		  }
+		  to {
+		    opacity: 1;
+		  }
+		}
+
+		@keyframes fade {
+		  from {
+		    opacity: 0;
+		  }
+		  to {
+		    opacity: 1;
+		  }
+		}
