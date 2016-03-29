@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>web chat</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		body {
+		  display: -webkit-box;
+		  display: -webkit-flex;
+		  display: -ms-flexbox;
+		  display: flex;
+		  -webkit-box-align: center;
+		  -webkit-align-items: center;
+		      -ms-flex-align: center;
+		          align-items: center;
+		  -webkit-box-pack: center;
+		  -webkit-justify-content: center;
+		      -ms-flex-pack: center;
+		          justify-content: center;
+		  height: 100vh;
+		}
+
+		input {
+		  width: 100px;
+		  height: 40px;
+		}
+
+	</style>
+</head>
+<body>
+<input type="button" value="0"/>
+<input type="button" value="0"/>
+<input type="button" value="0"/>
+<input type="button" value="0"/>
+<input type="button" value="0"/>
+<input type="button" value="0"/>
+<script type="text/javascript">
+	'use strict';
+	var aBtn = document.getElementsByTagName('input');
+	var arr = [
+	    'A',
+	    'B',
+	    'C',
+	    'D'
+	];
+	[].forEach.call(aBtn, function (val) {
+	    var index = 0;
+	    val.onclick = function () {
+	        var that = this;
+	        if (index === arr.length) {
+	            index = 0;
+	        }
+	        that.value = arr[index++];
+	    };
+	});
+</script>
+</body>
+</html>

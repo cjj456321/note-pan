@@ -287,25 +287,3 @@
 		  -webkit-animation-delay: .3s;
 		          animation-delay: .3s;
 		}
-
-<<<<<<< HEAD
-		
-=======
-		@-webkit-keyframes fade {
-		  from {
-		    opacity: 0;
-		  }
-		  to {
-		    opacity: 1;
-		  }
-		}
-
-		@keyframes fade {
-		  from {
-		    opacity: 0;
-		  }
-		  to {
-		    opacity: 1;
-		  }
-		}
->>>>>>> 67d575884c5acc471c486bd1e2bcd93db8f71c5f
