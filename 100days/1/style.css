@@ -1,7 +1,7 @@
+	@import url(keyframes.css);
 	body {
 		background-color: #f7f7f7;
 	}
-	@import url(keyframes.css);
 	/*talk================================begin*/
 	.talk {
 		  margin: 50px auto;
