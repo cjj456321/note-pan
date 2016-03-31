@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+	<style type="text/css">
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+		#canvas {
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="600" height="600"></canvas>
+	<script type="text/javascript">
+		'use strict'
+		// 获取鼠标在某个元素上的位置
+		function getMousePos (ele) {
+		  let mouse = {x: 0, y: 0}
+		  ele.addEventListener('mousemove', function (e) {
+		    mouse.x = e.pageX - ele.offsetLeft
+		    mouse.y = e.pageY - ele.offsetTop
+		  })
+		  return mouse
+		}
+
+		// 根据选择起选择元素
+		function $ (selector) {
+		  return document.querySelectorAll(selector)
+		}
+
+		let canvas = $('#canvas')[0]
+		var ctx = canvas.getContext('2d')
+		var pos = getMousePos(canvas)
+		// 创建Arrow构造器
+		function Arrow() {
+			this.x = 0
+			this.y = 0
+			this.rotation = 0
+			this.color = '#ff0'
+		}
+		Arrow.prototype.draw = function(ctx) {
+			ctx.save()
+			ctx.translate(this.x, this.y)
+			ctx.rotate(this.rotation)
+			ctx.lineWidth = 2
+			ctx.fillStyle = this.color
+			ctx.beginPath()
+			ctx.moveTo(-50, -25)
+			ctx.lineTo(0, -25)
+			ctx.lineTo(0, -50)
+			ctx.lineTo(50, 0)
+			ctx.lineTo(0, 50)
+			ctx.lineTo(0, 25)
+			ctx.lineTo(-50, 25)
+			ctx.closePath()
+			ctx.fill()
+			ctx.stroke()
+			ctx.restore()
+		}
+		let arrow = new Arrow()
+		arrow.x = canvas.width / 2
+		arrow.y = canvas.height / 2
+
+		;+function drawFrame() {
+			window.requestAnimationFrame(drawFrame)
+			// ctx.clearRect(0, 0, canvas.width, canvas.height)
+			let dx = pos.x - arrow.x
+			let dy = pos.y - arrow.y
+			arrow.rotation = Math.atan2(dy, dx)
+			arrow.draw(ctx)
+		}()
+	</script>
+</body>
+</html>
