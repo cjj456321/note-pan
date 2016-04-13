@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>personal note</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<style type="text/css" media="screen">
 		html {
 			box-sizing: border-box;
@@ -32,12 +33,23 @@
 			margin: 10px;
 			text-align: left;
 		}
+		p {
+			width: 300px;
+			height: 300px;
+			border: 1px solid red;
+			overflow : hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+		}
 	</style>
 </head>
 <body>
 	<ul>
 		<li>
 			<a href="100days"></a>
+			<p>hbs has the ability to expose the application and request locals within any context inside a view. To enable this functionality, simply call the localsAsTemplateData method and pass in your Express application instance.</p>
 		</li>
 		<li>
 			<a href="other-demo"></a>
